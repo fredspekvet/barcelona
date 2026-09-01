@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="nl" class="h-full bg-slate-900 text-slate-100">
+<html lang="nl" class="min-h-screen bg-slate-950 text-slate-100">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Barcelona Tour Guide | 10 - 13 September</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,11 +17,10 @@
                     colors: {
                         bcn: {
                             gold: '#F59E0B',
-                            red: '#E11D48',
-                            blue: '#0284C7',
-                            dark: '#0F172A',
-                            card: '#1E293B',
-                            cardHover: '#334155'
+                            coral: '#F43F5E',
+                            bg: '#090D16',
+                            card: '#131C2E',
+                            cardBorder: 'rgba(255, 255, 255, 0.08)'
                         }
                     },
                     fontFamily: {
@@ -35,6 +34,7 @@
         body {
             -webkit-tap-highlight-color: transparent;
             user-select: none;
+            background-color: #090D16;
         }
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
@@ -44,556 +44,360 @@
             scrollbar-width: none;
         }
         .glass-header {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .glass-nav {
-            background: rgba(30, 41, 59, 0.9);
+            background: rgba(9, 13, 22, 0.9);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
+        .glass-nav {
+            background: rgba(19, 28, 46, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
     </style>
 </head>
-<body class="h-full flex flex-col font-sans antialiased overflow-x-hidden selection:bg-rose-500 selection:text-white pb-24">
+<body class="min-h-screen bg-slate-950 text-slate-200 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
 
-    <!-- Top Header & Banner -->
-    <header class="sticky top-0 z-40 glass-header border-b border-slate-800 px-4 py-3 transition-all duration-200">
+    <!-- Top Header -->
+    <header class="sticky top-0 z-40 glass-header border-b border-slate-800/80 px-4 py-3">
         <div class="max-w-md mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-500 to-amber-500 flex items-center justify-center shadow-lg shadow-rose-500/20">
-                    <i class="fa-solid fa-location-dot text-white text-lg"></i>
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-500 flex items-center justify-center shadow-md shadow-amber-500/10">
+                    <i class="fa-solid fa-location-dot text-slate-950 text-lg font-bold"></i>
                 </div>
                 <div>
-                    <h1 class="font-extrabold text-base leading-tight tracking-tight text-white">BCN Vrienden Trip</h1>
-                    <p class="text-xs text-slate-400 flex items-center gap-1.5 font-medium">
+                    <h1 class="font-bold text-base leading-tight text-white tracking-tight">Barcelona Vriendentrip</h1>
+                    <p class="text-[11px] text-slate-400 flex items-center gap-2 font-medium mt-0.5">
                         <span><i class="fa-regular fa-calendar-alt text-amber-400"></i> 10 - 13 Sep</span>
                         <span>•</span>
-                        <span><i class="fa-solid fa-user-group text-sky-400"></i> 5 Pers.</span>
+                        <span><i class="fa-solid fa-user-group text-slate-300"></i> 5 Pers.</span>
                     </p>
                 </div>
             </div>
-            <button onclick="toggleQuickTipsModal()" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-amber-400 transition">
-                <i class="fa-solid fa-lightbulb"></i>
+            <button onclick="toggleQuickTipsModal()" class="w-9 h-9 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700/60 flex items-center justify-center text-amber-400 transition active:scale-95">
+                <i class="fa-solid fa-lightbulb text-sm"></i>
             </button>
         </div>
     </header>
 
-    <!-- Main Content Container -->
-    <main class="flex-1 max-w-md w-full mx-auto px-4 pt-4">
+    <!-- Main Content Container with extra bottom padding to prevent overlap -->
+    <main class="flex-1 max-w-md w-full mx-auto px-4 pt-4 space-y-4 pb-32">
 
         <!-- Banner Card Info -->
-        <div class="mb-4 bg-gradient-to-r from-rose-950/60 to-amber-950/40 border border-rose-500/30 rounded-2xl p-4 shadow-lg relative overflow-hidden">
-            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-rose-500/10 rounded-full blur-xl pointer-events-none"></div>
+        <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950/30 border border-amber-500/30 rounded-2xl p-4 shadow-lg relative overflow-hidden">
             <div class="flex justify-between items-start mb-2">
-                <span class="bg-rose-500/20 text-rose-300 text-[10px] uppercase font-bold px-2.5 py-1 rounded-full border border-rose-500/30 tracking-wider">
-                    5 Vrienden Trip
+                <span class="bg-amber-500/15 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-amber-500/20 tracking-wider">
+                    <i class="fa-solid fa-users mr-1"></i> 5 Vrienden
                 </span>
-                <button onclick="openMaps('Carrer d\'Àngel Guimerà 1', 'https://maps.google.com/?cid=12024462346178782129')" class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-lg border border-emerald-500/30 font-semibold flex items-center gap-1 hover:bg-emerald-500/30 transition">
-                    <i class="fa-solid fa-house text-emerald-400"></i> Ons Verblijf
+                <button onclick="openMaps('Carrer d\'Àngel Guimerà 1', 'https://maps.google.com/?cid=12024462346178782129')" class="text-xs bg-emerald-500/15 text-emerald-300 px-2.5 py-1 rounded-lg border border-emerald-500/30 font-semibold flex items-center gap-1.5 hover:bg-emerald-500/25 transition">
+                    <i class="fa-solid fa-house text-emerald-400 text-xs"></i> Ons Verblijf
                 </button>
             </div>
-            <h2 class="text-lg font-bold text-white mb-1">Klaar voor Barcelona! 🇪🇸</h2>
-            <p class="text-xs text-slate-300 leading-relaxed mb-2">
-                Verblijf: <span class="text-amber-400 font-medium">Carrer d'Àngel Guimerà, 1</span> (Sarrià-Sant Gervasi). Tik op <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-map-location-dot"></i> Maps</span> bij een activiteit om direct de route te starten!
+            <h2 class="text-base font-bold text-white mb-1">Carrer d'Àngel Guimerà, 1 🇪🇸</h2>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                Sarrià-Sant Gervasi • Tik op <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-map-location-dot"></i> Maps</span> bij een activiteit voor de directe route.
             </p>
             <!-- Flight Status Badge Row -->
-            <div class="flex items-center gap-2 pt-2 border-t border-rose-500/20 text-[11px]">
-                <span class="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-700 text-amber-300 font-semibold flex items-center gap-1">
-                    <i class="fa-solid fa-plane-arrival text-rose-400"></i> Heen: HV5133
+            <div class="flex items-center gap-2 pt-2.5 border-t border-slate-800 text-[11px]">
+                <span class="bg-slate-950/80 px-2.5 py-1 rounded-lg border border-slate-800 text-slate-300 font-medium flex items-center gap-1.5">
+                    <i class="fa-solid fa-plane-arrival text-amber-400"></i> Heen: <strong class="text-white">HV5133</strong>
                 </span>
-                <span class="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-700 text-sky-300 font-semibold flex items-center gap-1">
-                    <i class="fa-solid fa-plane-departure text-sky-400"></i> Terug: HV5132
+                <span class="bg-slate-950/80 px-2.5 py-1 rounded-lg border border-slate-800 text-slate-300 font-medium flex items-center gap-1.5">
+                    <i class="fa-solid fa-plane-departure text-rose-400"></i> Terug: <strong class="text-white">HV5132</strong>
                 </span>
             </div>
         </div>
 
         <!-- Navigation Tabs (Top Pill Bar) -->
-        <div class="flex bg-slate-800/80 p-1 rounded-xl border border-slate-700/60 mb-5 shadow-inner">
-            <button id="tab-btn-program" onclick="switchTab('program')" class="tab-btn flex-1 py-2 text-xs font-bold rounded-lg transition-all duration-200 bg-rose-600 text-white shadow">
+        <div class="flex bg-slate-900/90 p-1 rounded-xl border border-slate-800 mb-2 shadow-inner">
+            <button id="tab-btn-program" onclick="switchTab('program')" class="tab-btn flex-1 py-2 text-xs font-bold rounded-lg transition-all duration-200 bg-amber-500 text-slate-950 shadow">
                 <i class="fa-solid fa-calendar-day mr-1"></i> Programma
             </button>
             <button id="tab-btn-food" onclick="switchTab('food')" class="tab-btn flex-1 py-2 text-xs font-bold rounded-lg transition-all duration-200 text-slate-400 hover:text-white">
-                <i class="fa-solid fa-utensils mr-1"></i> Lunch & Diner
+                <i class="fa-solid fa-utensils mr-1"></i> Eten
             </button>
             <button id="tab-btn-map" onclick="switchTab('map')" class="tab-btn flex-1 py-2 text-xs font-bold rounded-lg transition-all duration-200 text-slate-400 hover:text-white">
                 <i class="fa-solid fa-map-marked-alt mr-1"></i> Snelmaps
             </button>
             <button id="tab-btn-group" onclick="switchTab('group')" class="tab-btn flex-1 py-2 text-xs font-bold rounded-lg transition-all duration-200 text-slate-400 hover:text-white">
-                <i class="fa-solid fa-users-gear mr-1"></i> Groep & Tips
+                <i class="fa-solid fa-users-gear mr-1"></i> Groep
             </button>
         </div>
 
         <!-- TAB 1: PROGRAMMA (10 t/m 13 September) -->
-        <section id="tab-program" class="tab-content space-y-6">
+        <section id="tab-program" class="tab-content space-y-4">
 
             <!-- Day Selector Filter Bar -->
             <div class="flex space-x-2 overflow-x-auto hide-scrollbar pb-1">
-                <button onclick="filterDay('day1')" id="day-btn-day1" class="day-filter-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-amber-500 text-slate-950 shadow-md">
-                    Thu 10 Sep <span class="block text-[10px] font-normal">Aankomst & Born</span>
+                <button onclick="filterDay('day1')" id="day-btn-day1" class="day-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-amber-500 text-slate-950 shadow-sm">
+                    Thu 10 Sep <span class="block text-[10px] font-normal opacity-90">Aankomst & Born</span>
                 </button>
-                <button onclick="filterDay('day2')" id="day-btn-day2" class="day-filter-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-800 text-slate-300 border border-slate-700">
-                    Fri 11 Sep <span class="block text-[10px] font-normal">Montjuïc & Viewpoint</span>
+                <button onclick="filterDay('day2')" id="day-btn-day2" class="day-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-400 border border-slate-800">
+                    Fri 11 Sep <span class="block text-[10px] font-normal opacity-70">Montjuïc & Sunset</span>
                 </button>
-                <button onclick="filterDay('day3')" id="day-btn-day3" class="day-filter-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-800 text-slate-300 border border-slate-700">
-                    Sat 12 Sep <span class="block text-[10px] font-normal">Strand & Nightlife</span>
+                <button onclick="filterDay('day3')" id="day-btn-day3" class="day-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-400 border border-slate-800">
+                    Sat 12 Sep <span class="block text-[10px] font-normal opacity-70">Strand & Paella</span>
                 </button>
-                <button onclick="filterDay('day4')" id="day-btn-day4" class="day-filter-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-800 text-slate-300 border border-slate-700">
-                    Sun 13 Sep <span class="block text-[10px] font-normal">Boqueria & Departure</span>
+                <button onclick="filterDay('day4')" id="day-btn-day4" class="day-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-400 border border-slate-800">
+                    Sun 13 Sep <span class="block text-[10px] font-normal opacity-70">Terugvlucht</span>
                 </button>
             </div>
 
             <!-- DAY 1 CONTENT -->
-            <div id="day-section-day1" class="day-section space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-                    <h3 class="text-sm font-bold text-amber-400 flex items-center gap-2">
+            <div id="day-section-day1" class="day-section space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                    <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
                         <i class="fa-solid fa-plane-arrival"></i> Donderdag 10 September
                     </h3>
-                    <span class="text-xs text-amber-300 font-medium bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">Vlucht HV5133</span>
+                    <span class="text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800 font-mono">HV5133</span>
                 </div>
 
                 <!-- Card 1.1 -->
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm hover:border-slate-600 transition">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 text-xs font-bold">14:45 - 16:00</span>
-                            <span class="text-xs font-semibold text-slate-400"><i class="fa-solid fa-plane-arrival"></i> Landing</span>
-                        </div>
-                        <button onclick="openMaps('Carrer d\'Àngel Guimerà 1', 'https://maps.google.com/?cid=12024462346178782129')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-amber-400 text-xs font-bold font-mono">14:45 - 16:00</span>
+                        <button onclick="openMaps('Carrer d\'Àngel Guimerà 1', 'https://maps.google.com/?cid=12024462346178782129')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Aankomst Vlucht HV5133 & Check-in</h4>
-                    <p class="text-xs text-slate-300 mt-1">Landing op Barcelona El Prat (Terminal 2) met <strong class="text-amber-400">Transavia HV5133</strong>. Pak een Taxi XL / Cabify 6-seater voor 5 personen naar Carrer d'Àngel Guimerà 1. Spullen droppen, opfrissen en klaarstomen voor de eerste avond!</p>
+                    <h4 class="text-sm font-bold text-white mt-2.5">Aankomst Transavia HV5133 & Check-in</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Landing Terminal 2. Pak een Taxi XL / Cabify 6-seater voor 5 personen naar Carrer d'Àngel Guimerà 1. Spullen droppen en de stad in!</p>
                 </div>
 
                 <!-- Card 1.2 -->
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm hover:border-slate-600 transition">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 text-xs font-bold">16:00 - 18:30</span>
-                            <span class="text-xs font-semibold text-slate-400"><i class="fa-solid fa-shoe-prints"></i> Wandeling</span>
-                        </div>
-                        <button onclick="openMaps('Gothic Quarter Barcelona', 'https://maps.google.com/?cid=8937116140485914040')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">16:00 - 18:30</span>
+                        <button onclick="openMaps('Gothic Quarter Barcelona', 'https://maps.google.com/?cid=8937116140485914040')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Gothic Quarter & El Born Ontdekken</h4>
-                    <p class="text-xs text-slate-300 mt-1">Dwaal door de smalle middeleeuwse steegjes van Barri Gòtic, drink een eerste terrasje op Plaça Reial en ontdek de bruisende sfeer van El Born.</p>
-                    <div class="mt-3 pt-2 border-t border-slate-700/60 flex items-center justify-between text-[11px] text-slate-400">
-                        <span><i class="fa-solid fa-camera text-rose-400 mr-1"></i> Highlight: Plaça Reial & Santa Maria del Mar</span>
-                    </div>
+                    <h4 class="text-sm font-bold text-white mt-2.5">Gothic Quarter & El Born Ontdekken</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Dwaal door de smalle steegjes van Barri Gòtic, terrasje pakken op Plaça Reial en de sfeer proeven in El Born.</p>
                 </div>
 
                 <!-- Card 1.3 -->
-                <div class="bg-slate-800/90 border border-rose-500/40 rounded-2xl p-4 shadow-sm relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-rose-600 text-white text-[9px] font-bold px-3 py-0.5 rounded-bl-lg uppercase tracking-wider">Welkomst Diner</div>
+                <div class="bg-slate-900/80 border border-amber-500/30 rounded-2xl p-4 shadow-sm relative overflow-hidden">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 text-xs font-bold">20:30 - 23:00</span>
-                            <span class="text-xs font-semibold text-amber-400"><i class="fa-solid fa-wine-glass"></i> Tapas & Cava</span>
-                        </div>
-                        <button onclick="openMaps('El Xampanyet Barcelona', 'https://maps.google.com/?cid=8937116140485914040')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
+                        <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 text-xs font-bold font-mono">20:30 - 23:00</span>
+                        <button onclick="openMaps('El Xampanyet Barcelona', 'https://maps.google.com/?cid=8937116140485914040')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Diner: El Xampanyet (El Born)</h4>
-                    <p class="text-xs text-slate-300 mt-1">Legendarische, authentieke tapasbar vol sfeer. Bestel de beroemde huisgemaakte Cava, ansjovis, iberico ham en tortilla. Ideaal voor 5 man!</p>
-                    <div class="mt-3 flex items-center gap-2">
-                        <span class="text-[11px] bg-slate-900/80 text-amber-400 px-2 py-0.5 rounded border border-slate-700">
-                            <i class="fa-solid fa-star text-amber-400"></i> 4.6 (8900+ reviews)
-                        </span>
-                        <span class="text-[11px] text-slate-400">€€ • Top sfeer</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DAY 2 CONTENT (NON-GAUDI REPLACEMENTS) -->
-            <div id="day-section-day2" class="day-section hidden space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-                    <h3 class="text-sm font-bold text-amber-400 flex items-center gap-2">
-                        <i class="fa-solid fa-mountain"></i> Vrijdag 11 September
-                    </h3>
-                    <span class="text-xs text-slate-400 font-medium">Dag 2 - Montjuïc & Panoramic Views</span>
-                </div>
-
-                <!-- Card 2.1 (Replaced Sagrada with Montjuïc Castle & Cable Car) -->
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm">
-                    <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 text-xs font-bold">10:30 - 13:00</span>
-                            <span class="text-xs font-semibold text-sky-400"><i class="fa-solid fa-cable-car"></i> Highlight</span>
-                        </div>
-                        <button onclick="openMaps('Castell de Montjuïc', 'https://maps.google.com/?cid=17865243575459344400')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
-                            <i class="fa-solid fa-map-location-dot"></i> Maps
-                        </button>
-                    </div>
-                    <h4 class="text-base font-bold text-white mt-2">Montjuïc Castle & Telefèric Kabelbaan</h4>
-                    <p class="text-xs text-slate-300 mt-1">Pak de iconische kabelbaan naar het historische kasteel op de berg Montjuïc. Geniet van spectaculair uitzicht over de haven en de Middellandse Zee zonder toeristische Gaudí-drukte.</p>
-                </div>
-
-                <!-- Card 2.2 Lunch -->
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm">
-                    <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 text-xs font-bold">13:30 - 15:00</span>
-                            <span class="text-xs font-semibold text-slate-400"><i class="fa-solid fa-utensils"></i> Lunch</span>
-                        </div>
-                        <button onclick="openMaps('Cervecería Catalana', 'https://maps.google.com/?cid=7860387390770853690')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
-                            <i class="fa-solid fa-map-location-dot"></i> Maps
-                        </button>
-                    </div>
-                    <h4 class="text-base font-bold text-white mt-2">Lunch: Cervecería Catalana / Ciutat Comtal</h4>
-                    <p class="text-xs text-slate-300 mt-1">Eén van de beste en meest bruisende tapasbars van de stad. Beroemd om de Montaditos (stokbroodjes), mini-burgers, pimientos de padrón en ijskoude biertjes.</p>
-                </div>
-
-                <!-- Card 2.3 (Replaced Park Güell with Port Vell & Electric Scooter Tour / Catamaran) -->
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm">
-                    <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 text-xs font-bold">15:30 - 18:00</span>
-                            <span class="text-xs font-semibold text-slate-400"><i class="fa-solid fa-ship"></i> Haven & Promenade</span>
-                        </div>
-                        <button onclick="openMaps('Port Vell Barcelona', 'https://maps.google.com/?cid=2201713585473283579')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
-                            <i class="fa-solid fa-map-location-dot"></i> Maps
-                        </button>
-                    </div>
-                    <h4 class="text-base font-bold text-white mt-2">Port Vell & Parc de la Ciutadella</h4>
-                    <p class="text-xs text-slate-300 mt-1">Chillen in het levendige Parc de la Ciutadella of huur e-scooters/fietsen om langs de boulevard en de jachthaven Port Vell te touren.</p>
-                </div>
-
-                <!-- Card 2.4 Viewpoint Sunset -->
-                <div class="bg-slate-800/90 border border-amber-500/40 rounded-2xl p-4 shadow-sm">
-                    <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 text-xs font-bold">18:30 - 20:30</span>
-                            <span class="text-xs font-semibold text-amber-400"><i class="fa-solid fa-sun"></i> Sunset Drinks</span>
-                        </div>
-                        <button onclick="openMaps('Bunkers del Carmel', 'https://maps.google.com/?cid=8714113821680467939')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
-                            <i class="fa-solid fa-map-location-dot"></i> Maps
-                        </button>
-                    </div>
-                    <h4 class="text-base font-bold text-white mt-2">Sunset bij Bunkers del Carmel</h4>
-                    <p class="text-xs text-slate-300 mt-1">Het mooiste 360-graden panoramische uitzicht over heel Barcelona! Neem wat gekoelde speciaalbieren en snacks mee uit de supermarkt voor de zonsondergang.</p>
+                    <h4 class="text-sm font-bold text-white mt-2.5">Welkomstdiner: El Xampanyet</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Legendarische tapasbar in El Born met huisgemaakte Cava, anchovis en Iberico ham. Ideale sfeer voor 5 man!</p>
                 </div>
             </div>
 
             <!-- DAY 2 CONTENT -->
-            <div id="day-section-day2" class="day-section hidden space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-                    <h3 class="text-sm font-bold text-amber-400 flex items-center gap-2">
-                        <i class="fa-solid fa-landmark"></i> Vrijdag 11 September
+            <div id="day-section-day2" class="day-section hidden space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                    <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-mountain"></i> Vrijdag 11 September
                     </h3>
-                    <span class="text-xs text-slate-400 font-medium">Dag 2 - Gaudí & Zonsondergang</span>
+                    <span class="text-[10px] text-slate-400">Montjuïc & Sunset Viewpoint</span>
                 </div>
 
                 <!-- Card 2.1 -->
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 text-xs font-bold">10:00 - 12:30</span>
-                            <span class="text-xs font-semibold text-rose-400"><i class="fa-solid fa-ticket"></i> Must See</span>
-                        </div>
-                        <button onclick="openMaps('Sagrada Família', 'https://maps.google.com/?cid=11229913421514525008')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">10:30 - 13:00</span>
+                        <button onclick="openMaps('Castell de Montjuïc', 'https://maps.google.com/?cid=17865243575459344400')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Basílica de la Sagrada Família</h4>
-                    <p class="text-xs text-slate-300 mt-1">Het meesterwerk van Antoni Gaudí. Zorg dat je vooraf tijdslots hebt geboekt voor de groep! Bekijk zowel de binnenkant als de indrukwekkende torens.</p>
-                    <div class="mt-2 text-[11px] text-rose-400 font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-circle-exclamation"></i> Tip: Boek tickets 2-3 weken vooraf online!
-                    </div>
+                    <h4 class="text-sm font-bold text-white mt-2.5">Montjuïc Castle & Telefèric Kabelbaan</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Pak de kabelbaan naar de top van de berg Montjuïc voor een prachtig uitzicht over de stad en de haven.</p>
                 </div>
 
                 <!-- Card 2.2 Lunch -->
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 text-xs font-bold">13:00 - 14:30</span>
-                            <span class="text-xs font-semibold text-slate-400"><i class="fa-solid fa-utensils"></i> Lunch</span>
-                        </div>
-                        <button onclick="openMaps('Cervecería Catalana', 'https://maps.google.com/?cid=7860387390770853690')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">13:30 - 15:00</span>
+                        <button onclick="openMaps('Cervecería Catalana', 'https://maps.google.com/?cid=7860387390770853690')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Lunch: Cervecería Catalana</h4>
-                    <p class="text-xs text-slate-300 mt-1">Een van de beste tapasrestaurants in de wijk Eixample. Beroemd om de *Montaditos* (stokbroodhapjes), mini-burgers en gegrilde schelpdieren.</p>
+                    <h4 class="text-sm font-bold text-white mt-2.5">Lunch: Cervecería Catalana</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Bruisende tapasbar beroemd om Montaditos (stokbroodjes), mini-burgers en ijskoude biertjes.</p>
                 </div>
 
                 <!-- Card 2.3 -->
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 text-xs font-bold">15:30 - 17:30</span>
-                            <span class="text-xs font-semibold text-slate-400"><i class="fa-solid fa-tree"></i> Park & Architectuur</span>
-                        </div>
-                        <button onclick="openMaps('Park Güell', 'https://maps.google.com/?cid=9915250311879642712')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">15:30 - 18:00</span>
+                        <button onclick="openMaps('Port Vell Barcelona', 'https://maps.google.com/?cid=2201713585473283579')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Park Güell Wandeling</h4>
-                    <p class="text-xs text-slate-300 mt-1">Schilderachtig park met de beroemde gekleurde mozaïekbanken en uitzicht over de stad tot aan de zee. Prachtige fotospot met de 6 vrienden.</p>
+                    <h4 class="text-sm font-bold text-white mt-2.5">Port Vell Promenade & Parc de la Ciutadella</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Relaxen in het park of met e-scooters touren langs de boulevard en jachthaven van Port Vell.</p>
                 </div>
 
                 <!-- Card 2.4 Viewpoint Sunset -->
-                <div class="bg-slate-800/90 border border-amber-500/40 rounded-2xl p-4 shadow-sm">
+                <div class="bg-slate-900/80 border border-amber-500/30 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 text-xs font-bold">18:30 - 20:30</span>
-                            <span class="text-xs font-semibold text-amber-400"><i class="fa-solid fa-sun"></i> Sunset Beers</span>
-                        </div>
-                        <button onclick="openMaps('Bunkers del Carmel', 'https://maps.google.com/?cid=8714113821680467939')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
+                        <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 text-xs font-bold font-mono">18:30 - 20:30</span>
+                        <button onclick="openMaps('Bunkers del Carmel', 'https://maps.google.com/?cid=8714113821680467939')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Sunset bij Bunkers del Carmel (MUHBA)</h4>
-                    <p class="text-xs text-slate-300 mt-1">Het mooiste 360-graden panoramische uitzicht over heel Barcelona! Neem wat drankjes en snacks mee uit de supermarkt voor een epische zonsondergang op de heuvel.</p>
+                    <h4 class="text-sm font-bold text-white mt-2.5">Sunset bij Bunkers del Carmel</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Het mooiste 360-graden panoramische uitzicht over heel Barcelona. Neem blikjes drinken mee!</p>
                 </div>
             </div>
 
             <!-- DAY 3 CONTENT -->
-            <div id="day-section-day3" class="day-section hidden space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-                    <h3 class="text-sm font-bold text-amber-400 flex items-center gap-2">
+            <div id="day-section-day3" class="day-section hidden space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                    <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
                         <i class="fa-solid fa-umbrella-beach"></i> Zaterdag 12 September
                     </h3>
-                    <span class="text-xs text-slate-400 font-medium">Dag 3 - Strand, Paella & Uitgaan</span>
+                    <span class="text-[10px] text-slate-400">Strand, Paella & Uitgaan</span>
                 </div>
 
                 <!-- Card 3.1 Beach -->
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 text-xs font-bold">11:00 - 14:00</span>
-                            <span class="text-xs font-semibold text-slate-400"><i class="fa-solid fa-water"></i> Relaxen</span>
-                        </div>
-                        <button onclick="openMaps('Playa de la Barceloneta', 'https://maps.google.com/?cid=2201713585473283579')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">11:00 - 14:00</span>
+                        <button onclick="openMaps('Playa de la Barceloneta', 'https://maps.google.com/?cid=2201713585473283579')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Playa de la Barceloneta & Chiringuito</h4>
-                    <p class="text-xs text-slate-300 mt-1">Ochtend chillen op het strand, duik in het Middellandse Zee water en haal een verfrissende Sangria of speciaalbier bij een strandtent.</p>
+                    <h4 class="text-sm font-bold text-white mt-2.5">Playa de la Barceloneta & Chiringuito</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Strand, duik in zee en een verfrissende Sangria pakken bij een strandtent.</p>
                 </div>
 
                 <!-- Card 3.2 Paella Lunch -->
-                <div class="bg-slate-800/90 border border-amber-500/40 rounded-2xl p-4 shadow-sm">
+                <div class="bg-slate-900/80 border border-amber-500/30 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 text-xs font-bold">14:30 - 16:30</span>
-                            <span class="text-xs font-semibold text-amber-400"><i class="fa-solid fa-bowl-rice"></i> Paella Feest</span>
-                        </div>
-                        <button onclick="openMaps('7 Portes Barcelona', 'https://maps.google.com/?cid=11316796753651107510')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
+                        <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 text-xs font-bold font-mono">14:30 - 16:30</span>
+                        <button onclick="openMaps('7 Portes Barcelona', 'https://maps.google.com/?cid=11316796753651107510')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Lunch: Restaurant 7 Portes</h4>
-                    <p class="text-xs text-slate-300 mt-1">Historisch restaurant (sinds 1836) bekend om de allerbeste authentieke Paella Seafood (Paella Parellada) in Barcelona. Reserveren voor 6 personen is aanbevolen!</p>
+                    <h4 class="text-sm font-bold text-white mt-2.5">Paella Lunch: Restaurant 7 Portes</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Historisch restaurant bekend om de allerbeste authentieke Seafood Paella in Barcelona.</p>
                 </div>
 
                 <!-- Card 3.3 Evening & Night Out -->
-                <div class="bg-slate-800/90 border border-rose-500/40 rounded-2xl p-4 shadow-sm">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 text-xs font-bold">23:30 - Late</span>
-                            <span class="text-xs font-semibold text-rose-400"><i class="fa-solid fa-martini-glass-citrus"></i> Nightlife</span>
-                        </div>
-                        <button onclick="openMaps('Opium Barcelona', 'https://maps.google.com/?cid=15803368006927918052')" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/30 transition">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">23:30 - Late</span>
+                        <button onclick="openMaps('Opium Barcelona', 'https://maps.google.com/?cid=15803368006927918052')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Nightlife op de Strip (Opium / Pacha)</h4>
-                    <p class="text-xs text-slate-300 mt-1">Feest aan het strand bij Vila Olímpica. Opium en Pacha zijn topclubs waar het feest met 5 man doorgaat tot de vroege uurtjes!</p>
+                    <h4 class="text-sm font-bold text-white mt-2.5">Nightlife bij Vila Olímpica (Opium / Pacha)</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Feest aan het strand. Opium en Pacha zijn topclubs waar het feest doorgaat tot laat!</p>
                 </div>
             </div>
 
             <!-- DAY 4 CONTENT -->
-            <div id="day-section-day4" class="day-section hidden space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-                    <h3 class="text-sm font-bold text-amber-400 flex items-center gap-2">
+            <div id="day-section-day4" class="day-section hidden space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                    <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
                         <i class="fa-solid fa-plane-departure"></i> Zondag 13 September
                     </h3>
-                    <span class="text-xs text-sky-300 font-medium bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">Vlucht HV5132</span>
+                    <span class="text-[10px] text-slate-400 font-mono">HV5132</span>
                 </div>
 
                 <!-- Card 4.1 Flight Departure HV5132 -->
-                <div class="bg-slate-800/90 border border-amber-500/40 rounded-2xl p-4 shadow-sm relative overflow-hidden">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 text-xs font-bold">06:30 - 08:55</span>
-                            <span class="text-xs font-semibold text-rose-400"><i class="fa-solid fa-plane-departure"></i> Terugvlucht</span>
-                        </div>
+                        <span class="px-2.5 py-1 rounded-lg bg-rose-500/15 text-rose-300 text-xs font-bold font-mono">06:30 - 08:55</span>
                     </div>
-                    <h4 class="text-base font-bold text-white mt-2">Terugvlucht HV5132 (BCN ➔ AMS)</h4>
-                    <p class="text-xs text-slate-300 mt-1">
-                        Vertrek om <strong class="text-amber-400">08:55 uur</strong> vanaf Barcelona El Prat (Terminal 2). Bestel om <strong>06:30 uur</strong> een Taxi XL of Cabify minivan voor alle 5 de vrienden vanaf het appartement.
+                    <h4 class="text-sm font-bold text-white mt-2.5">Terugvlucht Transavia HV5132</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                        Vertrek om <strong class="text-amber-400">08:55 uur</strong> vanaf Barcelona El Prat (Terminal 2). Bestel om <strong>06:30 uur</strong> een Taxi XL of Cabify minivan voor de 5 vrienden.
                     </p>
-                    <div class="mt-3 p-2.5 bg-slate-900/80 rounded-xl border border-slate-700/60 text-xs text-slate-300 space-y-1">
-                        <div class="flex items-center gap-1.5 text-amber-400 font-semibold">
-                            <i class="fa-solid fa-circle-info"></i> Airport Check: Transavia Terminal 2
-                        </div>
-                        <p class="text-[11px] text-slate-400">Zorg dat je uiterlijk 07:00/07:15 op Terminal 2 bent voor bagagedrop en de security check.</p>
-                    </div>
                 </div>
             </div>
 
         </section>
 
         <!-- TAB 2: LUNCH & AVONDETEN SUGGESTIES -->
-        <section id="tab-food" class="tab-content hidden space-y-4">
+        <section id="tab-food" class="tab-content hidden space-y-3">
 
             <!-- Category Filter Buttons -->
             <div class="flex space-x-2 overflow-x-auto hide-scrollbar pb-1">
-                <button onclick="filterFood('all')" id="food-filter-all" class="food-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-rose-600 text-white">
-                    Alles (8)
+                <button onclick="filterFood('all')" id="food-filter-all" class="food-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-amber-500 text-slate-950">
+                    Alles (6)
                 </button>
-                <button onclick="filterFood('lunch')" id="food-filter-lunch" class="food-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-800 text-slate-300 border border-slate-700">
+                <button onclick="filterFood('lunch')" id="food-filter-lunch" class="food-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800">
                     <i class="fa-solid fa-sun text-amber-400 mr-1"></i> Lunch
                 </button>
-                <button onclick="filterFood('dinner')" id="food-filter-dinner" class="food-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-800 text-slate-300 border border-slate-700">
-                    <i class="fa-solid fa-moon text-indigo-400 mr-1"></i> Avondeten
+                <button onclick="filterFood('dinner')" id="food-filter-dinner" class="food-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800">
+                    <i class="fa-solid fa-moon text-slate-400 mr-1"></i> Avondeten
                 </button>
-                <button onclick="filterFood('tapas')" id="food-filter-tapas" class="food-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-800 text-slate-300 border border-slate-700">
-                    <i class="fa-solid fa-wine-glass text-rose-400 mr-1"></i> Tapas Bars
+                <button onclick="filterFood('tapas')" id="food-filter-tapas" class="food-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800">
+                    <i class="fa-solid fa-wine-glass text-rose-400 mr-1"></i> Tapas
                 </button>
-            </div>
-
-            <div class="text-xs text-slate-400 px-1">
-                <i class="fa-solid fa-info-circle text-sky-400 mr-1"></i> Alle hotspots zijn getest & perfect geschikt voor 5 personen.
             </div>
 
             <!-- List of Food Spots -->
-            <div class="space-y-4" id="food-list">
+            <div class="space-y-3" id="food-list">
 
                 <!-- Food Spot 1 -->
-                <div class="food-card bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm" data-category="tapas dinner">
+                <div class="food-card bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm" data-category="tapas dinner">
                     <div class="flex justify-between items-start">
                         <div>
-                            <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 text-[10px] font-bold uppercase tracking-wider">Tapas & Cava Bar</span>
-                            <h4 class="text-base font-bold text-white mt-1">El Xampanyet</h4>
-                            <p class="text-xs text-slate-400">Carrer de Montcada, 22 (El Born)</p>
+                            <span class="px-2 py-0.5 rounded bg-slate-800 text-amber-400 text-[10px] font-bold uppercase tracking-wider">Tapas & Cava</span>
+                            <h4 class="text-sm font-bold text-white mt-1">El Xampanyet</h4>
+                            <p class="text-[11px] text-slate-400">El Born • €€</p>
                         </div>
-                        <button onclick="openMaps('El Xampanyet Barcelona', 'https://maps.google.com/?cid=8937116140485914040')" class="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5 hover:bg-emerald-500/30 transition">
+                        <button onclick="openMaps('El Xampanyet Barcelona', 'https://maps.google.com/?cid=8937116140485914040')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <p class="text-xs text-slate-300 mt-2">Drukke, iconische plek vol Spaanse dynamiek. Geweldige huisgemaakte Cava, anchovis, calamares en Iberische ham. Tip: kom vlak voor openingstijd (19:00)!</p>
-                    <div class="mt-3 flex items-center justify-between border-t border-slate-700/60 pt-2 text-xs">
-                        <span class="text-amber-400 font-bold"><i class="fa-solid fa-star"></i> 4.6 / 5.0</span>
-                        <span class="text-slate-400 font-semibold">Prijs: €€ (ca. €20 - €30 p.p.)</span>
-                    </div>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">Drukke, authentieke plek met geweldige huisgemaakte Cava en tapas.</p>
                 </div>
 
                 <!-- Food Spot 2 -->
-                <div class="food-card bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm" data-category="lunch tapas">
+                <div class="food-card bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm" data-category="lunch tapas">
                     <div class="flex justify-between items-start">
                         <div>
-                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-wider">Cava & Sandwiches</span>
-                            <h4 class="text-base font-bold text-white mt-1">Can Paixano (La Xampanyeria)</h4>
-                            <p class="text-xs text-slate-400">Carrer de la Reina Cristina, 7 (Barceloneta)</p>
+                            <span class="px-2 py-0.5 rounded bg-slate-800 text-amber-400 text-[10px] font-bold uppercase tracking-wider">Broodjes & Cava</span>
+                            <h4 class="text-sm font-bold text-white mt-1">Can Paixano (La Xampanyeria)</h4>
+                            <p class="text-[11px] text-slate-400">Barceloneta • €</p>
                         </div>
-                        <button onclick="openMaps('Can Paixano La Xampanyeria', 'https://maps.google.com/?cid=14434436649269913165')" class="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5 hover:bg-emerald-500/30 transition">
+                        <button onclick="openMaps('Can Paixano La Xampanyeria', 'https://maps.google.com/?cid=14434436649269913165')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <p class="text-xs text-slate-300 mt-2">Een absolute must voor een vriendengroep! Staande bar waar je spotgoedkope flessen rosé cava drinkt en warme broodjes met chorizo en pork loin eet. Sfeervol & luidruchtig.</p>
-                    <div class="mt-3 flex items-center justify-between border-t border-slate-700/60 pt-2 text-xs">
-                        <span class="text-amber-400 font-bold"><i class="fa-solid fa-star"></i> 4.6 / 5.0</span>
-                        <span class="text-slate-400 font-semibold">Prijs: € (ca. €10 - €15 p.p.)</span>
-                    </div>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">Staande bar met spotgoedkope flessen rosé cava en warme broodjes.</p>
                 </div>
 
                 <!-- Food Spot 3 -->
-                <div class="food-card bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm" data-category="lunch dinner">
+                <div class="food-card bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm" data-category="lunch dinner">
                     <div class="flex justify-between items-start">
                         <div>
-                            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 text-[10px] font-bold uppercase tracking-wider">Klassieke Paella</span>
-                            <h4 class="text-base font-bold text-white mt-1">Restaurant 7 Portes</h4>
-                            <p class="text-xs text-slate-400">Passeig d'Isabel II, 14</p>
+                            <span class="px-2 py-0.5 rounded bg-slate-800 text-amber-400 text-[10px] font-bold uppercase tracking-wider">Paella</span>
+                            <h4 class="text-sm font-bold text-white mt-1">Restaurant 7 Portes</h4>
+                            <p class="text-[11px] text-slate-400">Passeig d'Isabel II • €€€</p>
                         </div>
-                        <button onclick="openMaps('7 Portes Barcelona', 'https://maps.google.com/?cid=11316796753651107510')" class="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5 hover:bg-emerald-500/30 transition">
+                        <button onclick="openMaps('7 Portes Barcelona', 'https://maps.google.com/?cid=11316796753651107510')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
-                    <p class="text-xs text-slate-300 mt-2">Sinds 1836 hét instituut voor Paella en visgerechten in Barcelona. Grote tafels, witte linnen servetten en topkwaliteit rijstgerechten.</p>
-                    <div class="mt-3 flex items-center justify-between border-t border-slate-700/60 pt-2 text-xs">
-                        <span class="text-amber-400 font-bold"><i class="fa-solid fa-star"></i> 4.4 / 5.0</span>
-                        <span class="text-slate-400 font-semibold">Prijs: €€€ (ca. €35 - €50 p.p.)</span>
-                    </div>
-                </div>
-
-                <!-- Food Spot 4 -->
-                <div class="food-card bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm" data-category="lunch tapas dinner">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 text-[10px] font-bold uppercase tracking-wider">Populaire Tapas</span>
-                            <h4 class="text-base font-bold text-white mt-1">Cervecería Catalana</h4>
-                            <p class="text-xs text-slate-400">Carrer de Mallorca, 236 (Eixample)</p>
-                        </div>
-                        <button onclick="openMaps('Cervecería Catalana', 'https://maps.google.com/?cid=7860387390770853690')" class="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5 hover:bg-emerald-500/30 transition">
-                            <i class="fa-solid fa-map-location-dot"></i> Maps
-                        </button>
-                    </div>
-                    <p class="text-xs text-slate-300 mt-2">Continu levendig met een enorme vitrine vol verse tapas en pinchos. Zowel binnen als op het terras heerlijk zitten.</p>
-                    <div class="mt-3 flex items-center justify-between border-t border-slate-700/60 pt-2 text-xs">
-                        <span class="text-amber-400 font-bold"><i class="fa-solid fa-star"></i> 4.4 / 5.0</span>
-                        <span class="text-slate-400 font-semibold">Prijs: €€ (ca. €25 - €35 p.p.)</span>
-                    </div>
-                </div>
-
-                <!-- Food Spot 5 -->
-                <div class="food-card bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm" data-category="dinner">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-[10px] font-bold uppercase tracking-wider">Culinaire Foodhall</span>
-                            <h4 class="text-base font-bold text-white mt-1">El Nacional</h4>
-                            <p class="text-xs text-slate-400">Passeig de Gràcia, 24 Bis</p>
-                        </div>
-                        <button onclick="openMaps('El Nacional Barcelona', 'https://maps.google.com/?cid=787139403907623797')" class="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5 hover:bg-emerald-500/30 transition">
-                            <i class="fa-solid fa-map-location-dot"></i> Maps
-                        </button>
-                    </div>
-                    <p class="text-xs text-slate-300 mt-2">Prachtige vintage industriële hallen met 4 verschillende restaurants (Vlees, Vis, Tapas, Delicatessen) en 4 gespecialiseerde bars.</p>
-                    <div class="mt-3 flex items-center justify-between border-t border-slate-700/60 pt-2 text-xs">
-                        <span class="text-amber-400 font-bold"><i class="fa-solid fa-star"></i> 4.4 / 5.0</span>
-                        <span class="text-slate-400 font-semibold">Prijs: €€€ (ca. €30 - €45 p.p.)</span>
-                    </div>
-                </div>
-
-                <!-- Food Spot 6 -->
-                <div class="food-card bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm" data-category="lunch tapas">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">Markthapjes</span>
-                            <h4 class="text-base font-bold text-white mt-1">El Quim de la Boqueria</h4>
-                            <p class="text-xs text-slate-400">Mercat de la Boqueria</p>
-                        </div>
-                        <button onclick="openMaps('Mercat de la Boqueria', 'https://maps.google.com/?cid=9658750418627571157')" class="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5 hover:bg-emerald-500/30 transition">
-                            <i class="fa-solid fa-map-location-dot"></i> Maps
-                        </button>
-                    </div>
-                    <p class="text-xs text-slate-300 mt-2">Beroemde bar midden op de markt. Probeer de spiegeleieren met baby-inktvisjes (*huevos con chipirones*)!</p>
-                    <div class="mt-3 flex items-center justify-between border-t border-slate-700/60 pt-2 text-xs">
-                        <span class="text-amber-400 font-bold"><i class="fa-solid fa-star"></i> 4.5 / 5.0</span>
-                        <span class="text-slate-400 font-semibold">Prijs: €€ (ca. €20 - €30 p.p.)</span>
-                    </div>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">Hét klassieke instituut voor de allerbeste Paella in de stad.</p>
                 </div>
 
             </div>
         </section>
 
-        <!-- TAB 3: SNELMAPS (DIRECT NAVIGATE TO ANY ATTRACTION) -->
-        <section id="tab-map" class="tab-content hidden space-y-4">
-            <div class="bg-slate-800/60 border border-slate-700 p-3 rounded-xl text-xs text-slate-300 flex items-center gap-2">
+        <!-- TAB 3: SNELMAPS -->
+        <section id="tab-map" class="tab-content hidden space-y-3">
+            <div class="bg-slate-900/90 border border-slate-800 p-3 rounded-2xl text-xs text-slate-300 flex items-center gap-2">
                 <i class="fa-solid fa-compass text-amber-400 text-base"></i>
-                <span>Klik op een locatie om direct **Google Maps** te openen en de route vanaf jullie adres te starten.</span>
+                <span>Klik op een locatie om direct <strong>Google Maps</strong> te openen voor de route.</span>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-2">
 
                 <!-- Map Item Stay Address -->
-                <div class="bg-slate-800 border border-emerald-500/40 rounded-xl p-3 flex items-center justify-between hover:bg-slate-750 transition">
+                <div class="bg-slate-900/80 border border-emerald-500/30 rounded-xl p-3 flex items-center justify-between">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-base">
+                        <div class="w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold text-sm">
                             <i class="fa-solid fa-house"></i>
                         </div>
                         <div>
@@ -601,31 +405,31 @@
                             <p class="text-[10px] text-slate-400">Carrer d'Àngel Guimerà, 1</p>
                         </div>
                     </div>
-                    <button onclick="openMaps('Carrer d\'Àngel Guimerà 1', 'https://maps.google.com/?cid=12024462346178782129')" class="p-2 rounded-lg bg-emerald-600 text-white text-xs font-bold shadow hover:bg-emerald-500 transition">
-                        <i class="fa-solid fa-diamond-turn-right mr-1"></i> Route
+                    <button onclick="openMaps('Carrer d\'Àngel Guimerà 1', 'https://maps.google.com/?cid=12024462346178782129')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Route
                     </button>
                 </div>
 
                 <!-- Map Item Montjuïc Castle -->
-                <div class="bg-slate-800 border border-slate-700 rounded-xl p-3 flex items-center justify-between hover:bg-slate-750 transition">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-base">
+                        <div class="w-9 h-9 rounded-lg bg-slate-800 text-slate-300 flex items-center justify-center font-bold text-sm">
                             <i class="fa-solid fa-fort-awesome"></i>
                         </div>
                         <div>
                             <h5 class="text-xs font-bold text-white">Montjuïc Kasteel</h5>
-                            <p class="text-[10px] text-slate-400">Carretera de Montjuïc, 66</p>
+                            <p class="text-[10px] text-slate-400">Carretera de Montjuïc</p>
                         </div>
                     </div>
-                    <button onclick="openMaps('Castell de Montjuïc', 'https://maps.google.com/?cid=17865243575459344400')" class="p-2 rounded-lg bg-emerald-600 text-white text-xs font-bold shadow hover:bg-emerald-500 transition">
-                        <i class="fa-solid fa-diamond-turn-right mr-1"></i> Route
+                    <button onclick="openMaps('Castell de Montjuïc', 'https://maps.google.com/?cid=17865243575459344400')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Route
                     </button>
                 </div>
 
                 <!-- Map Item Bunkers -->
-                <div class="bg-slate-800 border border-slate-700 rounded-xl p-3 flex items-center justify-between hover:bg-slate-750 transition">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-base">
+                        <div class="w-9 h-9 rounded-lg bg-slate-800 text-slate-300 flex items-center justify-center font-bold text-sm">
                             <i class="fa-solid fa-mountain"></i>
                         </div>
                         <div>
@@ -633,255 +437,105 @@
                             <p class="text-[10px] text-slate-400">Panorama Viewpoint</p>
                         </div>
                     </div>
-                    <button onclick="openMaps('Bunkers del Carmel', 'https://maps.google.com/?cid=8714113821680467939')" class="p-2 rounded-lg bg-emerald-600 text-white text-xs font-bold shadow hover:bg-emerald-500 transition">
-                        <i class="fa-solid fa-diamond-turn-right mr-1"></i> Route
-                    </button>
-                </div>
-
-                <!-- Map Item Port Vell -->
-                <div class="bg-slate-800 border border-slate-700 rounded-xl p-3 flex items-center justify-between hover:bg-slate-750 transition">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">
-                            <i class="fa-solid fa-anchor"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-xs font-bold text-white">Port Vell & Haven</h5>
-                            <p class="text-[10px] text-slate-400">Rambla de Mar</p>
-                        </div>
-                    </div>
-                    <button onclick="openMaps('Port Vell Barcelona', 'https://maps.google.com/?cid=2201713585473283579')" class="p-2 rounded-lg bg-emerald-600 text-white text-xs font-bold shadow hover:bg-emerald-500 transition">
-                        <i class="fa-solid fa-diamond-turn-right mr-1"></i> Route
-                    </button>
-                </div>
-
-                <!-- Map Item Barceloneta Strand -->
-                <div class="bg-slate-800 border border-slate-700 rounded-xl p-3 flex items-center justify-between hover:bg-slate-750 transition">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-base">
-                            <i class="fa-solid fa-umbrella-beach"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-xs font-bold text-white">Barceloneta Beach</h5>
-                            <p class="text-[10px] text-slate-400">Playa de la Barceloneta</p>
-                        </div>
-                    </div>
-                    <button onclick="openMaps('Playa de la Barceloneta', 'https://maps.google.com/?cid=2201713585473283579')" class="p-2 rounded-lg bg-emerald-600 text-white text-xs font-bold shadow hover:bg-emerald-500 transition">
-                        <i class="fa-solid fa-diamond-turn-right mr-1"></i> Route
-                    </button>
-                </div>
-
-                <!-- Map Item Opium -->
-                <div class="bg-slate-800 border border-slate-700 rounded-xl p-3 flex items-center justify-between hover:bg-slate-750 transition">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-base">
-                            <i class="fa-solid fa-glass-cheers"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-xs font-bold text-white">Opium Club</h5>
-                            <p class="text-[10px] text-slate-400">Passeig Marítim, 34</p>
-                        </div>
-                    </div>
-                    <button onclick="openMaps('Opium Barcelona', 'https://maps.google.com/?cid=15803368006927918052')" class="p-2 rounded-lg bg-emerald-600 text-white text-xs font-bold shadow hover:bg-emerald-500 transition">
-                        <i class="fa-solid fa-diamond-turn-right mr-1"></i> Route
+                    <button onclick="openMaps('Bunkers del Carmel', 'https://maps.google.com/?cid=8714113821680467939')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Route
                     </button>
                 </div>
 
             </div>
         </section>
 
-        <!-- TAB 4: GROEP & TIPS (WIE BETAALT WAT, TICKET CHECKLIST & METRO) -->
-        <section id="tab-group" class="tab-content hidden space-y-5">
-
-            <!-- Vluchtgegevens Card -->
-            <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm space-y-3">
-                <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-plane text-rose-400"></i> Vluchtgegevens Transavia
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60">
-                        <div class="text-amber-400 font-bold flex items-center justify-between mb-1">
-                            <span><i class="fa-solid fa-plane-arrival mr-1"></i> Heenvlucht</span>
-                            <span class="bg-amber-500/20 px-1.5 py-0.5 rounded text-[10px] text-amber-300">HV5133</span>
-                        </div>
-                        <p class="text-slate-300 font-semibold text-[11px]">Donderdag 10 Sep</p>
-                        <p class="text-slate-400 text-[10px] mt-0.5">Schiphol (AMS) ✈️ Barcelona (BCN T2)</p>
-                    </div>
-                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60">
-                        <div class="text-sky-400 font-bold flex items-center justify-between mb-1">
-                            <span><i class="fa-solid fa-plane-departure mr-1"></i> Terugvlucht</span>
-                            <span class="bg-sky-500/20 px-1.5 py-0.5 rounded text-[10px] text-sky-300">HV5132</span>
-                        </div>
-                        <p class="text-slate-300 font-semibold text-[11px]">Zondag 13 Sep (08:55)</p>
-                        <p class="text-slate-400 text-[10px] mt-0.5">Barcelona (BCN T2) ✈️ Schiphol (AMS)</p>
-                    </div>
-                </div>
-            </div>
+        <!-- TAB 4: GROEP & TIPS -->
+        <section id="tab-group" class="tab-content hidden space-y-3">
 
             <!-- Wie betaalt wat Calculator -->
-            <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm">
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                 <div class="flex items-center justify-between mb-3">
-                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-calculator text-amber-400"></i> Groep Splitter (5 Vrienden)
+                    <h3 class="text-xs font-bold text-white flex items-center gap-2 uppercase tracking-wider">
+                        <i class="fa-solid fa-calculator text-amber-400"></i> Rekening Splitter (5 Vrienden)
                     </h3>
-                    <span class="text-[10px] bg-amber-500/20 text-amber-300 font-semibold px-2 py-0.5 rounded">Snelle Rekenmachine</span>
                 </div>
                 <div class="space-y-3">
                     <div>
-                        <label class="block text-xs text-slate-400 mb-1">Totaalbedrag rekening (€):</label>
-                        <input type="number" id="split-total" placeholder="bijv. 125" oninput="calculateSplit()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-rose-500">
+                        <label class="block text-[11px] text-slate-400 mb-1">Totaalbedrag rekening (€):</label>
+                        <input type="number" id="split-total" placeholder="bijv. 125" oninput="calculateSplit()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
                     </div>
-                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60 flex items-center justify-between">
-                        <span class="text-xs text-slate-300">Per persoon (5x):</span>
-                        <span id="split-result" class="text-lg font-extrabold text-amber-400">€0,00</span>
+                    <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400">Per persoon (5x):</span>
+                        <span id="split-result" class="text-base font-extrabold text-amber-400 font-mono">€0,00</span>
                     </div>
-                </div>
-            </div>
-
-            <!-- Metro & Transport Gids -->
-            <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm space-y-2">
-                <h3 class="text-sm font-bold text-white flex items-center gap-2 mb-2">
-                    <i class="fa-solid fa-train-subway text-sky-400"></i> Vervoer voor 5 Personen
-                </h3>
-                <div class="text-xs text-slate-300 space-y-2">
-                    <div class="flex items-start gap-2">
-                        <i class="fa-solid fa-ticket text-amber-400 mt-0.5"></i>
-                        <div>
-                            <strong class="text-white">T-Casual Kaart:</strong> 10 ritten voor ~€12 per persoon. Ideaal voor het openbaar vervoer.
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-2">
-                        <i class="fa-solid fa-taxi text-emerald-400 mt-0.5"></i>
-                        <div>
-                            <strong class="text-white">Taxi / Uber XL / Cabify (5p):</strong> Met 5 personen kun je via de Cabify of FreeNow app heel eenvoudig een 6-persoons minivan/XL taxi bestellen!
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Checklist voor de Groep -->
-            <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4 shadow-sm">
-                <h3 class="text-sm font-bold text-white flex items-center gap-2 mb-3">
-                    <i class="fa-solid fa-list-check text-rose-400"></i> Trip Checklist (10-13 Sep)
-                </h3>
-                <div class="space-y-2 text-xs">
-                    <label class="flex items-center space-x-2 bg-slate-900/60 p-2 rounded-lg cursor-pointer border border-slate-700/50">
-                        <input type="checkbox" checked class="rounded border-slate-700 text-rose-600 focus:ring-0">
-                        <span class="text-slate-200">Tafel reserveren bij Paella restaurant 7 Portes</span>
-                    </label>
-                    <label class="flex items-center space-x-2 bg-slate-900/60 p-2 rounded-lg cursor-pointer border border-slate-700/50">
-                        <input type="checkbox" class="rounded border-slate-700 text-rose-600 focus:ring-0">
-                        <span class="text-slate-200">Kabelbaan Montjuïc tickets boeken</span>
-                    </label>
-                    <label class="flex items-center space-x-2 bg-slate-900/60 p-2 rounded-lg cursor-pointer border border-slate-700/50">
-                        <input type="checkbox" class="rounded border-slate-700 text-rose-600 focus:ring-0">
-                        <span class="text-slate-200">Spaanse stekkers & Powerbanks meenemen</span>
-                    </label>
                 </div>
             </div>
 
         </section>
 
+        <!-- Extra scroll spacing buffer to ensure all bottom elements are visible above fixed nav bar -->
+        <div class="h-20 w-full" aria-hidden="true"></div>
+
     </main>
 
-    <!-- Bottom Fixed Nav Bar (Mobile App Feel) -->
-    <nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-slate-800 py-2 px-4">
+    <!-- Bottom Fixed Nav Bar (App Feel) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-slate-800/80 py-2.5 px-4 pb-safe">
         <div class="max-w-md mx-auto flex justify-around items-center">
-            <button onclick="switchTab('program')" id="nav-btn-program" class="nav-icon-btn flex flex-col items-center text-rose-500 font-bold transition">
-                <i class="fa-solid fa-calendar-days text-lg"></i>
-                <span class="text-[10px] mt-0.5">Programma</span>
+            <button onclick="switchTab('program')" id="nav-btn-program" class="nav-icon-btn flex flex-col items-center text-amber-400 font-bold transition">
+                <i class="fa-solid fa-calendar-days text-base"></i>
+                <span class="text-[10px] mt-1 font-medium">Programma</span>
             </button>
             <button onclick="switchTab('food')" id="nav-btn-food" class="nav-icon-btn flex flex-col items-center text-slate-400 hover:text-white transition">
-                <i class="fa-solid fa-utensils text-lg"></i>
-                <span class="text-[10px] mt-0.5">Eten & Drinken</span>
+                <i class="fa-solid fa-utensils text-base"></i>
+                <span class="text-[10px] mt-1 font-medium">Eten</span>
             </button>
             <button onclick="switchTab('map')" id="nav-btn-map" class="nav-icon-btn flex flex-col items-center text-slate-400 hover:text-white transition">
-                <i class="fa-solid fa-[#fa-map-pin] fa-map-pin text-lg"></i>
-                <span class="text-[10px] mt-0.5">Snelmaps</span>
+                <i class="fa-solid fa-map-location-dot text-base"></i>
+                <span class="text-[10px] mt-1 font-medium">Snelmaps</span>
             </button>
             <button onclick="switchTab('group')" id="nav-btn-group" class="nav-icon-btn flex flex-col items-center text-slate-400 hover:text-white transition">
-                <i class="fa-solid fa-users text-lg"></i>
-                <span class="text-[10px] mt-0.5">Groep</span>
+                <i class="fa-solid fa-users text-base"></i>
+                <span class="text-[10px] mt-1 font-medium">Groep</span>
             </button>
         </div>
     </nav>
 
-    <!-- Modal: Quick Tips -->
-    <div id="quick-tips-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-4 hidden">
-        <div class="bg-slate-800 border border-slate-700 w-full max-w-md rounded-2xl p-5 space-y-4 shadow-2xl animate-in fade-in slide-in-from-bottom duration-200">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-3">
-                <h3 class="font-bold text-white text-base flex items-center gap-2">
-                    <i class="fa-solid fa-shield-halved text-amber-400"></i> Essentiële Barcelona Tips
-                </h3>
-                <button onclick="toggleQuickTipsModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times text-lg"></i></button>
-            </div>
-            <div class="space-y-3 text-xs text-slate-300">
-                <div class="p-2.5 bg-slate-900/60 rounded-xl border border-slate-700/60">
-                    <strong class="text-rose-400 block mb-0.5">⚠️ Zakkenrollers & Veiligheid:</strong>
-                    Pas goed op telefoons en portemonnees op La Rambla, in de metro en op het strand van Barceloneta.
-                </div>
-                <div class="p-2.5 bg-slate-900/60 rounded-xl border border-slate-700/60">
-                    <strong class="text-amber-400 block mb-0.5">🍽️ Spaanse Eettijden:</strong>
-                    Lunch is meestal tussen 14:00 en 16:00. Avondeten begint pas rond 21:00 tot 23:00 uur!
-                </div>
-                <div class="p-2.5 bg-slate-900/60 rounded-xl border border-slate-700/60">
-                    <strong class="text-sky-400 block mb-0.5">🎟️ Reserveer Tijdslots:</strong>
-                    Voor Sagrada Família & Park Güell zijn geen tickets aan de deur te koop. Alles werkt met tijdslots online.
-                </div>
-            </div>
-            <button onclick="toggleQuickTipsModal()" class="w-full py-2.5 bg-rose-600 hover:bg-rose-500 font-bold text-white rounded-xl text-xs transition">
-                Begrepen!
-            </button>
-        </div>
-    </div>
-
-    <!-- Custom Toast Notification -->
-    <div id="toast-notification" class="fixed top-16 left-1/2 transform -translate-x-1/2 z-50 bg-emerald-600 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg transition-all duration-300 opacity-0 pointer-events-none flex items-center gap-2">
-        <i class="fa-solid fa-circle-check"></i> <span id="toast-message">Opening in Google Maps...</span>
-    </div>
-
     <script>
         // Navigation Switcher
         function switchTab(tabId) {
-            // Hide all tab content
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             
-            // Deactivate header tab buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-rose-600', 'text-white', 'shadow');
+                btn.classList.remove('bg-amber-500', 'text-slate-950', 'shadow');
                 btn.classList.add('text-slate-400');
             });
 
-            // Deactivate bottom nav buttons
             document.querySelectorAll('.nav-icon-btn').forEach(btn => {
-                btn.classList.remove('text-rose-500');
+                btn.classList.remove('text-amber-400');
                 btn.classList.add('text-slate-400');
             });
 
-            // Show selected tab content
             const targetContent = document.getElementById(`tab-${tabId}`);
             if (targetContent) targetContent.classList.remove('hidden');
 
-            // Highlight active top tab button
             const activeTopBtn = document.getElementById(`tab-btn-${tabId}`);
             if (activeTopBtn) {
-                activeTopBtn.classList.add('bg-rose-600', 'text-white', 'shadow');
+                activeTopBtn.classList.add('bg-amber-500', 'text-slate-950', 'shadow');
                 activeTopBtn.classList.remove('text-slate-400');
             }
 
-            // Highlight active bottom nav button
             const activeNavBtn = document.getElementById(`nav-btn-${tabId}`);
             if (activeNavBtn) {
-                activeNavBtn.classList.add('text-rose-500');
+                activeNavBtn.classList.add('text-amber-400');
                 activeNavBtn.classList.remove('text-slate-400');
             }
+
+            // Scroll top on tab change for smooth view
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Day Filter Logic inside Programma tab
+        // Day Filter Logic
         function filterDay(dayId) {
             document.querySelectorAll('.day-section').forEach(sec => sec.classList.add('hidden'));
             document.querySelectorAll('.day-filter-btn').forEach(btn => {
-                btn.classList.remove('bg-amber-500', 'text-slate-950', 'shadow-md');
-                btn.classList.add('bg-slate-800', 'text-slate-300', 'border', 'border-slate-700');
+                btn.classList.remove('bg-amber-500', 'text-slate-950', 'shadow-sm');
+                btn.classList.add('bg-slate-900', 'text-slate-400', 'border', 'border-slate-800');
             });
 
             const targetSection = document.getElementById(`day-section-${dayId}`);
@@ -889,8 +543,8 @@
 
             const activeBtn = document.getElementById(`day-btn-${dayId}`);
             if (activeBtn) {
-                activeBtn.classList.add('bg-amber-500', 'text-slate-950', 'shadow-md');
-                activeBtn.classList.remove('bg-slate-800', 'text-slate-300', 'border', 'border-slate-700');
+                activeBtn.classList.add('bg-amber-500', 'text-slate-950', 'shadow-sm');
+                activeBtn.classList.remove('bg-slate-900', 'text-slate-400', 'border', 'border-slate-800');
             }
         }
 
@@ -900,14 +554,14 @@
             const btns = document.querySelectorAll('.food-filter-btn');
 
             btns.forEach(btn => {
-                btn.classList.remove('bg-rose-600', 'text-white');
-                btn.classList.add('bg-slate-800', 'text-slate-300');
+                btn.classList.remove('bg-amber-500', 'text-slate-950');
+                btn.classList.add('bg-slate-900', 'text-slate-300');
             });
 
             const activeBtn = document.getElementById(`food-filter-${category}`);
             if (activeBtn) {
-                activeBtn.classList.add('bg-rose-600', 'text-white');
-                activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
+                activeBtn.classList.add('bg-amber-500', 'text-slate-950');
+                activeBtn.classList.remove('bg-slate-900', 'text-slate-300');
             }
 
             cards.forEach(card => {
@@ -922,40 +576,13 @@
 
         // Open Google Maps handler
         function openMaps(name, mapUrl) {
-            showToast(`Opening ${name} op Google Maps...`);
-            setTimeout(() => {
-                window.open(mapUrl, '_blank');
-            }, 300);
-        }
-
-        // Show Toast Function
-        function showToast(message) {
-            const toast = document.getElementById('toast-notification');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.innerText = message;
-            toast.classList.remove('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'pointer-events-none');
-            }, 2500);
+            window.open(mapUrl, '_blank');
         }
 
         // Modal Toggle
         function toggleQuickTipsModal() {
             const modal = document.getElementById('quick-tips-modal');
-            modal.classList.toggle('hidden');
-        }
-
-        // Favorite Bookmark Toggle
-        function toggleFavorite(btn) {
-            const icon = btn.querySelector('i');
-            if (icon.classList.contains('fa-regular')) {
-                icon.classList.remove('fa-regular');
-                icon.classList.add('fa-solid', 'text-amber-400');
-                showToast("Opslagen in favorieten!");
-            } else {
-                icon.classList.remove('fa-solid', 'text-amber-400');
-                icon.classList.add('fa-regular');
-            }
+            if (modal) modal.classList.toggle('hidden');
         }
 
         // Calculate Group Expense Splitter
