@@ -55,7 +55,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-slate-950 text-slate-200 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
+<body class="min-h-screen bg-slate-950 text-slate-200 font-sans antialiased selection:bg-amber-500 selection:text-slate-950 pb-40">
 
     <!-- Top Header -->
     <header class="sticky top-0 z-40 glass-header border-b border-slate-800/80 px-4 py-3">
@@ -73,15 +73,15 @@
                     </p>
                 </div>
             </div>
-            <!-- Werkende Slaapadres Knop in Header -->
-            <button onclick="openMaps('08902 L\'Hospitalet de Llobregat, Barcelona')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-emerald-400 flex items-center gap-1.5 transition active:scale-95 shadow-sm">
+            <!-- Slaapadres Directe Kaart Knop -->
+            <button onclick="openMapsUrl('https://www.google.com/maps/place/Carrer+Santa+Eul%C3%A0lia+%26+Carrer+d\'%C3%80ngel+Guimer%C3%A0,+08902+L\'Hospitalet+de+Llobregat,+Barcelona,+Spanje')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-emerald-400 flex items-center gap-1.5 transition active:scale-95 shadow-sm">
                 <i class="fa-solid fa-house"></i> Slaapadres
             </button>
         </div>
     </header>
 
     <!-- Main Content Container with extra bottom padding to prevent overlap -->
-    <main class="flex-1 max-w-md w-full mx-auto px-4 pt-4 space-y-4 pb-36">
+    <main class="flex-1 max-w-md w-full mx-auto px-4 pt-4 space-y-4 pb-24">
 
         <!-- Banner Card Info -->
         <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950/30 border border-amber-500/30 rounded-2xl p-4 shadow-lg relative overflow-hidden">
@@ -89,13 +89,13 @@
                 <span class="bg-amber-500/15 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-amber-500/20 tracking-wider">
                     <i class="fa-solid fa-users mr-1"></i> 5 Vrienden
                 </span>
-                <button onclick="openMaps('08902 L\'Hospitalet de Llobregat, Barcelona')" class="text-xs bg-emerald-500/15 text-emerald-300 px-2.5 py-1 rounded-lg border border-emerald-500/30 font-semibold flex items-center gap-1.5 hover:bg-emerald-500/25 transition">
+                <button onclick="openMapsUrl('https://www.google.com/maps/place/Carrer+Santa+Eul%C3%A0lia+%26+Carrer+d\'%C3%80ngel+Guimer%C3%A0,+08902+L\'Hospitalet+de+Llobregat,+Barcelona,+Spanje')" class="text-xs bg-emerald-500/15 text-emerald-300 px-2.5 py-1 rounded-lg border border-emerald-500/30 font-semibold flex items-center gap-1.5 hover:bg-emerald-500/25 transition">
                     <i class="fa-solid fa-house text-emerald-400 text-xs"></i> L'Hospitalet
                 </button>
             </div>
-            <h2 class="text-base font-bold text-white mb-1">08902 L'Hospitalet de Llobregat 🇪🇸</h2>
+            <h2 class="text-base font-bold text-white mb-1">Carrer Santa Eulàlia & Carrer d'Àngel Guimerà</h2>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">
-                Ons appartement • Tik op <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-map-location-dot"></i> Maps</span> bij een activiteit voor de directe route.
+                Ons slaapadres in L'Hospitalet • Tik op <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-map-location-dot"></i> Maps</span> voor de exacte route.
             </p>
             <!-- Flight Status Badge Row -->
             <div class="flex items-center gap-2 pt-2.5 border-t border-slate-800 text-[11px]">
@@ -156,19 +156,19 @@
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
                         <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-amber-400 text-xs font-bold font-mono">14:45 - 16:00</span>
-                        <button onclick="openMaps('Barcelona Airport Terminal 2')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('Barcelona Airport Terminal 2')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
                     <h4 class="text-sm font-bold text-white mt-2.5">Aankomst Transavia HV5133 & Check-in</h4>
-                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Landing Terminal 2. Pak een Taxi XL / Cabify 6-seater voor de 5 personen naar L'Hospitalet. Spullen droppen en de stad in!</p>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Landing Terminal 2. Pak een Taxi XL / Cabify 6-seater voor de 5 personen naar jullie slaapadres in L'Hospitalet. Spullen droppen en de stad in!</p>
                 </div>
 
                 <!-- Card 1.2 -->
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
                         <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">16:00 - 18:30</span>
-                        <button onclick="openMaps('Gothic Quarter Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('Gothic Quarter Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -180,7 +180,7 @@
                 <div class="bg-slate-900/80 border border-amber-500/30 rounded-2xl p-4 shadow-sm relative overflow-hidden">
                     <div class="flex items-start justify-between">
                         <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 text-xs font-bold font-mono">20:30 - 23:00</span>
-                        <button onclick="openMaps('El Xampanyet Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('El Xampanyet Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -202,7 +202,7 @@
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
                         <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">10:30 - 12:00</span>
-                        <button onclick="openMaps('Castell de Montjuïc')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('Castell de Montjuïc')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -214,7 +214,7 @@
                 <div class="bg-slate-900/80 border border-amber-500/40 rounded-2xl p-4 shadow-sm relative overflow-hidden">
                     <div class="flex items-start justify-between">
                         <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 text-xs font-bold font-mono">12:00 - 13:30</span>
-                        <button onclick="openMaps('Mirador de l\'Alcalde')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('Mirador de l\'Alcalde')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-person-walking"></i> Route Maps
                         </button>
                     </div>
@@ -234,7 +234,7 @@
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
                         <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">13:30 - 15:30</span>
-                        <button onclick="openMaps('Cervecería Catalana')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('Cervecería Catalana')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -246,7 +246,7 @@
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
                         <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 text-xs font-bold font-mono">18:30 - 20:30</span>
-                        <button onclick="openMaps('Bunkers del Carmel')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('Bunkers del Carmel')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -268,7 +268,7 @@
                 <div class="bg-slate-900/80 border border-amber-500/30 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
                         <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 text-xs font-bold font-mono">13:00 - 15:30</span>
-                        <button onclick="openMaps('BierCaB Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('BierCaB Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -287,7 +287,7 @@
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
                         <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">15:30 - 17:30</span>
-                        <button onclick="openMaps('Playa de la Barceloneta')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('Playa de la Barceloneta')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -299,7 +299,7 @@
                 <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-sm">
                     <div class="flex items-start justify-between">
                         <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold font-mono">19:30 - 22:00</span>
-                        <button onclick="openMaps('7 Portes Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('7 Portes Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -323,7 +323,7 @@
                     </div>
                     <h4 class="text-sm font-bold text-white mt-2.5">Terugvlucht Transavia HV5132</h4>
                     <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-                        Vertrek om <strong class="text-amber-400">08:55 uur</strong> vanaf Barcelona El Prat (Terminal 2). Bestel om <strong>06:30 uur</strong> een Taxi XL of Cabify minivan voor de 5 vrienden vanaf L'Hospitalet.
+                        Vertrek om <strong class="text-amber-400">08:55 uur</strong> vanaf Barcelona El Prat (Terminal 2). Bestel om <strong>06:30 uur</strong> een Taxi XL of Cabify minivan voor de 5 vrienden vanaf jullie slaapadres.
                     </p>
                 </div>
             </div>
@@ -340,7 +340,7 @@
                             <h4 class="text-sm font-bold text-white mt-1">BierCaB</h4>
                             <p class="text-[11px] text-slate-400">Carrer de Muntaner, 55 • €€</p>
                         </div>
-                        <button onclick="openMaps('BierCaB Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('BierCaB Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -354,7 +354,7 @@
                             <h4 class="text-sm font-bold text-white mt-1">El Xampanyet</h4>
                             <p class="text-[11px] text-slate-400">El Born • €€</p>
                         </div>
-                        <button onclick="openMaps('El Xampanyet Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('El Xampanyet Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -368,7 +368,7 @@
                             <h4 class="text-sm font-bold text-white mt-1">Restaurant 7 Portes</h4>
                             <p class="text-[11px] text-slate-400">Passeig d'Isabel II • €€€</p>
                         </div>
-                        <button onclick="openMaps('7 Portes Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
+                        <button onclick="openMapsQuery('7 Portes Barcelona')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 hover:bg-emerald-500/25 transition">
                             <i class="fa-solid fa-map-location-dot"></i> Maps
                         </button>
                     </div>
@@ -385,18 +385,18 @@
             </div>
 
             <div class="space-y-2">
-                <!-- Map Item Stay Address (L'Hospitalet) -->
+                <!-- Map Item Stay Address -->
                 <div class="bg-slate-900/80 border border-emerald-500/30 rounded-xl p-3 flex items-center justify-between">
                     <div class="flex items-center space-x-3">
                         <div class="w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold text-sm">
                             <i class="fa-solid fa-house"></i>
                         </div>
                         <div>
-                            <h5 class="text-xs font-bold text-white">Ons Verblijf (Slaapadres)</h5>
-                            <p class="text-[10px] text-slate-400">08902 L'Hospitalet de Llobregat</p>
+                            <h5 class="text-xs font-bold text-white">Ons Slaapadres</h5>
+                            <p class="text-[10px] text-slate-400">Carrer Santa Eulàlia & d'Àngel Guimerà</p>
                         </div>
                     </div>
-                    <button onclick="openMaps('08902 L\'Hospitalet de Llobregat, Barcelona')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
+                    <button onclick="openMapsUrl('https://www.google.com/maps/place/Carrer+Santa+Eul%C3%A0lia+%26+Carrer+d\'%C3%80ngel+Guimer%C3%A0,+08902+L\'Hospitalet+de+Llobregat,+Barcelona,+Spanje')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
                         <i class="fa-solid fa-diamond-turn-right"></i> Route
                     </button>
                 </div>
@@ -412,7 +412,7 @@
                             <p class="text-[10px] text-slate-400">Carrer de Muntaner, 55</p>
                         </div>
                     </div>
-                    <button onclick="openMaps('BierCaB Barcelona')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
+                    <button onclick="openMapsQuery('BierCaB Barcelona')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
                         <i class="fa-solid fa-diamond-turn-right"></i> Route
                     </button>
                 </div>
@@ -428,7 +428,7 @@
                             <p class="text-[10px] text-slate-400">Mirador de l'Alcalde</p>
                         </div>
                     </div>
-                    <button onclick="openMaps('Mirador de l\'Alcalde')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
+                    <button onclick="openMapsQuery('Mirador de l\'Alcalde')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
                         <i class="fa-solid fa-diamond-turn-right"></i> Route
                     </button>
                 </div>
@@ -444,7 +444,7 @@
                             <p class="text-[10px] text-slate-400">Aankomst & Vertrek</p>
                         </div>
                     </div>
-                    <button onclick="openMaps('Barcelona Airport Terminal 2')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
+                    <button onclick="openMapsQuery('Barcelona Airport Terminal 2')" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold shadow hover:bg-emerald-400 transition flex items-center gap-1">
                         <i class="fa-solid fa-diamond-turn-right"></i> Route
                     </button>
                 </div>
@@ -473,12 +473,12 @@
         </section>
 
         <!-- Extra scroll spacing buffer -->
-        <div class="h-20 w-full" aria-hidden="true"></div>
+        <div class="h-24 w-full" aria-hidden="true"></div>
 
     </main>
 
     <!-- Bottom Fixed Nav Bar -->
-    <nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-slate-800/80 py-2.5 px-4 pb-safe">
+    <nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-slate-800/80 py-2.5 px-4 pb-6">
         <div class="max-w-md mx-auto flex justify-around items-center">
             <button onclick="switchTab('program')" id="nav-btn-program" class="nav-icon-btn flex flex-col items-center text-amber-400 font-bold transition">
                 <i class="fa-solid fa-calendar-days text-base"></i>
@@ -550,8 +550,13 @@
             }
         }
 
-        // Open Google Maps handler
-        function openMaps(query) {
+        // Open Google Maps URL directly
+        function openMapsUrl(url) {
+            window.open(url, '_blank');
+        }
+
+        // Open Google Maps via search query
+        function openMapsQuery(query) {
             const encoded = encodeURIComponent(query);
             window.open(`https://www.google.com/maps/search/?api=1&query=${encoded}`, '_blank');
         }
